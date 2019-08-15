@@ -34,7 +34,7 @@ class UriUtils
     const QueryAccount = '/rest/v1.0/balance/account-query';
     //订单处理器——结算查询
     const QuerySettlement = '/rest/v1.0/sys/trade/settlementsquery';
-    //获取子商户密钥接口     支持沙箱
+    //获取子商户密钥接口     支持沙箱  ------------------已接
     const QueryHmacKey = '/rest/v1.0/sys/merchant/hmackeyquery';
     //订单处理器——创建订单------------------已接
     const CreateOrder = '/rest/v1.0/sys/trade/order';
@@ -64,7 +64,7 @@ class UriUtils
     const OpenPayJsApiConfigQuery = '/rest/v1.0/router/open-pay-jsapi-config/query';
     //openid查询     支持沙箱
     const QueryOpenId = '/rest/v1.0/new-retail/marketing/query-open-id';
-    //获取商户余额接口
+    //获取商户余额接口  --------------------已接
     const MerchantBalanceQuery = '/rest/v1.0/sys/merchant/balancequery';
     //聚合API收银台接口--------------------已接
     const NcCashierApiPay = '/rest/v1.0/nccashierapi/api/pay';

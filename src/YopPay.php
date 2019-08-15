@@ -4,6 +4,7 @@ namespace DishCheng\YopPay;
 
 use DishCheng\YopPay\Lib\YopClient3;
 use DishCheng\YopPay\Lib\YopRequest;
+use DishCheng\YopPay\Lib\YopResponse;
 use DishCheng\YopPay\Lib\YopRsaClient;
 use DishCheng\YopPay\Util\UriUtils;
 use Illuminate\Support\Arr;
@@ -369,6 +370,47 @@ class YopPay extends YopRsaClient
             $request->addParam($key, $value);
         }
         $response = YopClient3::post(UriUtils::OpenPayJsApiConfigQuery, $request);
+        return $response;
+    }
+
+
+    /**
+     * 获取商户余额接口     支持沙箱
+     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__merchant__balancequery.html
+     * @param $params
+     * [
+     *      'merchantNo'=>'10015386847',
+     * ]
+     * @return Lib\YopResponse|mixed
+     */
+    public static function merchantBalanceQuery($params)
+    {
+        $request = new YopRequest();
+        $request->addParam("parentMerchantNo", config('yop_pay.parentMerchantNo'));
+        foreach ($params as $key => $value) {
+            $request->addParam($key, $value);
+        }
+        $response = YopClient3::post(UriUtils::MerchantBalanceQuery, $request);
+        return $response;
+    }
+
+
+    /**
+     * 获取子商户密钥接口     支持沙箱
+     * @param $params
+     * [
+     *  'merchantNo'=>''
+     * ]
+     * @return YopResponse|mixed
+     */
+    public static function merchantHmacKeyQuery($params)
+    {
+        $request = new YopRequest();
+        $request->addParam("parentMerchantNo", config('yop_pay.parentMerchantNo'));
+        foreach ($params as $key => $value) {
+            $request->addParam($key, $value);
+        }
+        $response = YopClient3::post(UriUtils::QueryHmacKey, $request);
         return $response;
     }
 }
