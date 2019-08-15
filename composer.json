@@ -1,0 +1,22 @@
+{
+  "name": "dishcheng/yop_pay",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "caicheng",
+      "email": "caicheng@lvbaocloud.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DishCheng\\YopPay\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "laravel/lumen-framework": "5.5.*",
+    "php": ">=7.0.0",
+    "laravel/framework": ">=5.5",
+    "guzzlehttp/guzzle": "^6"
+  }
+}

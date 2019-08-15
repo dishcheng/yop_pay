@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta  charset=utf-8>
+<title>大算-系统商-专业版接口演示</title>
+<style type="text/css">
+table { border-collapse:collapse }
+
+td { font-size:18px; text-indent:2em; height:30px; }
+</style>
+</head>
+<body>
+<script language="javascript" id="clientEventHandlersJS">
+<!--
+var number=3;
+
+function LMYC() {
+var lbmc;
+ 
+    for (i=1;i<=number;i++) {
+        lbmc = eval('LM' + i);
+         
+        lbmc.style.display = 'none';
+    }
+}
+ 
+function ShowFLT(i) {
+    lbmc = eval('LM' + i);
+    
+    if (lbmc.style.display == 'none') {
+        LMYC();
+         
+        lbmc.style.display = '';
+    }
+    else {
+        
+        lbmc.style.display = 'none';
+    }
+}
+//-->
+</script>
+<table width="400" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+ <th align="center" height="20" colspan="1" bgcolor="#6BBE18"> 
+					大算-系统商-专业版接口演示
+				</th>
+  <tr>
+    <td  > + <a onclick="javascript:ShowFLT(1)" href="javascript:void(null)">商户个人信息上传接口</a></td>
+  </tr>
+  
+  <tr id="LM1" style="DISPLAY: none" >
+    <td><table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td style="padding-left:20px;" > --<a  href="personreginfoadd.php" >   个人注册  </a></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px;" > --<a href="individualreginfoadd.php" >  个体工商户注册 </a></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px;" > --<a  href="enterprisereginfoadd.php" >   企业注册 </a></td>
+        </tr>
+       
+        
+      </table></td>
+  </tr>
+   
+    <tr >
+				<td align="left" >
+				--	<a href="authorizenum.php" target="_blank" style="text-decoration:none;">授权短验重发接口  </a>
+				</td>
+	</tr>
+	
+	 <tr >
+				<td align="left" >
+				--	<a href="authorizeurlquery.php" target="_blank" style="text-decoration:none;">授权页面获取接口  </a>
+				</td>
+	</tr>
+	     		 <tr >
+				<td align="left" >
+				--	<a href="receiveauthorizenum.php" target="_blank" style="text-decoration:none;">授权码确认接口  </a>
+				</td>
+				
+	</tr>
+	
+	 <tr >
+				<td align="left" >
+				--	<a href="agreeinfoquery.php" target="_blank" style="text-decoration:none;">商户产品协议获取接口  </a>
+				</td>
+	</tr>
+	 <tr >
+				<td align="left" >
+				--	<a href="bankBranchInfo.php" target="_blank" style="text-decoration:none;">获取支行信息接口  </a>
+				</td>
+	</tr>
+		 <tr >
+				<td align="left" >
+				--	<a href="sms.php" target="_blank" style="text-decoration:none;">发送短信验证码接口（修改接口前调用）  </a>
+				</td>
+	</tr>
+		 <tr >
+				<td align="left" >
+				--	<a href="fee.php" target="_blank" style="text-decoration:none;">子商户费率修改接口  </a>
+				</td>
+	</tr>
+ <tr >
+				<td align="left" >
+				--	<a href="change.php" target="_blank" style="text-decoration:none;">子商户结算银行卡修改接口  </a>
+				</td>
+	</tr>
+	<tr >
+				<td align="left" >
+				--	<a href="regstatusquery.php" target="_blank" style="text-decoration:none;">入网信息查询接口  </a>
+				</td>
+	</tr>
+        <tr >
+				<td align="left" >
+				--	<a href="pay-product-info.php" target="_blank" style="text-decoration:none;">开通产品及费率信息查询接口  </a>
+				</td></tr>
+ 
+ 		 <tr >
+				<td align="left" >
+				--	<a href="balancequery.php" target="_blank" style="text-decoration:none;">余额查询接口 </a>
+				</td>
+	</tr>
+   		 <tr >
+				<td align="left" >
+				--	<a href="hmackeyquery.php" target="_blank" style="text-decoration:none;">子商户密钥查询接口  </a>
+				</td>
+	</tr>
+     		
+   <tr >
+				<td align="left" >
+				--	<a href="bin.php" target="_blank" style="text-decoration:none;">银行卡查询接口  </a>
+				</td>
+				
+	</tr>
+  <tr>
+    <td  > + <a onclick="javascript:ShowFLT(2)" href="javascript:void(null)">聚合报备&配置</a></td>
+  </tr>
+  
+  <tr id="LM2" style="DISPLAY: none" >
+    <td><table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td style="padding-left:20px;" > --<a  href="report.php" >   聚合报备  </a></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px;" > --<a href="queryConfig.php" >  聚合报备查询 </a></td>
+        </tr>
+       <tr>
+          <td style="padding-left:20px;" > --<a  href="reportConfig.php" >   公众号配置  </a></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px;" > --<a  href="queryConfig.php" >   公众号配置查询  </a></td>
+        </tr>
+        
+      </table></td>
+   
+	
+  <tr>
+    <td> + <a onclick="javascript:ShowFLT(3)" href="javascript:void(null)">订单创建&支付接口 </a></td>
+  </tr>
+  <tr id="LM3" style="DISPLAY: none" >
+    <td><table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td style="padding-left:20px;" > --<a  href="order.php" >   标准收银台支付接口  </a></td>
+        </tr>
+        <tr>
+          <td style="padding-left:20px;" > --<a href="APIorder.php" >   API收银台支付接口 </a></td>
+        </tr>
+       
+      </table></td>
+  </tr>
+  
+
+  
+  <tr >
+				<td align="left" >
+					--<a href="orderQuery.php" target="_blank" style="text-decoration:none;">
+						 订单查询接口
+					</a>
+				</td>
+			</tr>
+ 		<tr >
+				<td align="left">
+					--<a href="refund.php" target="_blank" style="text-decoration:none;">
+						 退款接口
+					</a>
+				</td>
+			</tr>
+			<tr >
+				<td align="left">
+					--<a href="refundQuery.php" target="_blank" style="text-decoration:none;">
+						  退款查询接口
+					</a>
+				</td>
+			</tr>
+			 
+			<tr >
+				<td align="left">
+					--<a href="close.php" target="_blank" style="text-decoration:none;">
+						  订单关闭接口
+					</a>
+				</td>
+			</tr>
+						<tr >
+				<td align="left">
+					--<a href="settlementsquery.php" target="_blank" style="text-decoration:none;">
+						  结算历史查询接口
+					</a>
+				</td>
+			</tr>
+						<tr >
+				<td align="left">
+					--<a href="divide.php" target="_blank" style="text-decoration:none;">
+						  分账接口
+					</a>
+				</td>
+			</tr>
+						<tr >
+				<td align="left">
+					--<a href="divideQuery.php" target="_blank" style="text-decoration:none;">
+						  分账查询接口
+					</a>
+				</td>
+			</tr>
+							<tr >
+				<td align="left">
+					--<a href="fullsettle.php" target="_blank" style="text-decoration:none;">
+						  资金确认接口
+					</a>
+				</td>
+			</tr>
+
+  	<tr >
+				<td align="left">
+					--<a href="getBill.php" target="_blank" style="text-decoration:none;">
+						  交易日对账接口
+					</a>
+				</td>
+			</tr>
+</table>
+</body>
+</html></td>
+	  </tr>
+	</table>
+	
+	
