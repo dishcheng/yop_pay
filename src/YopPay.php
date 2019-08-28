@@ -7,6 +7,7 @@ use DishCheng\YopPay\Lib\YopRequest;
 use DishCheng\YopPay\Lib\YopResponse;
 use DishCheng\YopPay\Lib\YopRsaClient;
 use DishCheng\YopPay\Util\UriUtils;
+use DishCheng\YopPay\Util\YopSignUtils;
 use Illuminate\Support\Arr;
 
 class YopPay extends YopRsaClient
@@ -334,6 +335,7 @@ class YopPay extends YopRsaClient
      * https://open.yeepay.com/docs/retail000001/rest__v1.0__router__open-pay-async-report__config.html
      * @param $params
      * [
+     *      'appId'=>'xxxx',
      *      'merchantNo'=>'10015386847',
      *      'appId'=>'appId',
      *      'channelIds    '=>'渠道号集合',
@@ -412,5 +414,15 @@ class YopPay extends YopRsaClient
         }
         $response = YopClient3::post(UriUtils::QueryHmacKey, $request);
         return $response;
+    }
+
+    /**
+     * 回调验签
+     * @param $responseString
+     * @return bool|string
+     */
+    public static function callback_decrypt($responseString)
+    {
+        return YopSignUtils::decrypt($responseString, config('yop_pay.private_key'), config('yop_pay.yop_public_key'));
     }
 }
