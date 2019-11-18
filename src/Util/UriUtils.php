@@ -54,7 +54,7 @@ class UriUtils
     const TradeOrderClose = '/rest/v1.0/sys/trade/orderclose';
     //API收银台聚合下单支付一体化
     const NcCashierApiOrderPay = '/rest/v1.0/nccashierapi/api/orderpay';
-    //聚合报备——报备服务
+    //聚合报备——报备服务--------------------已接
     const OpenPayAsyncReport = '/rest/v1.0/router/open-pay-async-report/report';
     //聚合报备——报备查询
     const QueryOpenPayReport = '/rest/v1.0/router/open-pay-report/query';

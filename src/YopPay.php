@@ -376,6 +376,30 @@ class YopPay extends YopRsaClient
     }
 
 
+
+    /**
+     * 聚合报备——报备服务
+     * https://open.yeepay.com/docs/retail000001/rest__v1.0__router__open-pay-async-report__report.html
+     * @param $params
+     * [
+     *      'merchantNo'=>'10015386847',
+     *      'appId'=>'appId',
+     *      'channelIds    '=>'渠道号集合',
+     *      'senceType'=>'场景',
+     * ]
+     * @return Lib\YopResponse|mixed
+     */
+    public static function openPayAsyncReport($params)
+    {
+        $request = new YopRequest();
+        foreach ($params as $key => $value) {
+            $request->addParam($key, $value);
+        }
+        $response = YopClient3::post(UriUtils::OpenPayAsyncReport, $request);
+        return $response;
+    }
+
+
     /**
      * 获取商户余额接口     支持沙箱
      * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__merchant__balancequery.html
