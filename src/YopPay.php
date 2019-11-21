@@ -212,10 +212,10 @@ class YopPay extends YopRsaClient
      *
      * @param $params
      * [
-     * 'merchantNo' => '10015386847',//子商编
-     * 'hmacKey' => '5Td040B217L4X9964IC8F0y4nNe2LQ217Q0C82p0k60Vd37m701S47q46922',
-     * 'orderId' => '83729bbb1f524d22aec4aca15a6b975d',//要关闭的订单的商户订单号
-     * 'uniqueOrderNo' => '1001201907290000000971645009',//易宝内部生成唯一订单流水号
+     * 'merchantNo' => '',//子商编，必须
+     * 'hmacKey' => '',//必须
+     * 'orderId' => '',//要关闭的订单的商户订单号，必须
+     * 'uniqueOrderNo' => '',//易宝内部生成唯一订单流水号,,非必须
      * ]
      *
      * @return Lib\YopResponse|mixed
@@ -260,7 +260,9 @@ class YopPay extends YopRsaClient
         $data['parentMerchantNo'] = $parentMerchantNo;
         $data['merchantNo'] = $params['merchantNo'];
         $data['orderId'] = $params['orderId'];
-        $data['uniqueOrderNo'] = $params['uniqueOrderNo'];
+        if (isset($params['uniqueOrderNo'])){
+            $data['uniqueOrderNo'] = $params['uniqueOrderNo'];
+        }
         $hmacstr = hash_hmac('sha256', self::arrayToString($data), $params['hmacKey'], true);
         $hmac = bin2hex($hmacstr);
         $request->addParam('hmac', $hmac);
