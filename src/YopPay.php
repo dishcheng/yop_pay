@@ -403,6 +403,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 代付代发--单笔出款请求     支持沙箱
+     * https://open.yeepay.com/docs/remit001/rest__v1.0__balance__transfer_send.html
      * @param $customer_number
      * @param $customer_private_key
      * @param $customer_yop_public_key
