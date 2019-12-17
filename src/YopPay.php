@@ -405,7 +405,7 @@ class YopPay extends YopRsaClient
      * 代付代发--单笔出款请求     支持沙箱
      * 1、接口开通
      * https://open.yeepay.com/docs/remit001/rest__v1.0__balance__transfer_send.html
-     * 2、如何获取公私钥信息
+     * 2、如何获取公私钥信息（需要子商户申请）
      * https://open.yeepay.com/docs/platform_profile/export_public_key.html
      * @param $customer_number
      * @param $customer_private_key
@@ -415,15 +415,14 @@ class YopPay extends YopRsaClient
      *  'batchNo'=>'',//批次号
      *  'orderId'=>'',//订单id
      *  'amount'=>'',//金额
-     *  'urgency'=>'',
-     *  'accountName'=>'',
-     *  'accountNumber'=>'',
-     *  'bankCode'=>'',
-     *  'bankName'=>'',
-     *  'bankBranchName'=>'',
-     *  'feeType'=>'',
-     *  'desc'=>'',
-     *  'leaveWord'=>'',
+     *  'accountName'=>'',//收款帐户的开户名称
+     *  'accountNumber'=>'',//收款帐户的卡号
+     *  'bankCode'=>'',//银行编码-必填
+     *  'bankName'=>'',//银行名称-非必填
+     *  'bankBranchName'=>'',//支行名称
+     *  'feeType'=>'',//手续费方式
+     *  'desc'=>'',//描述
+     *  'leaveWord'=>'',//留言-给收款人银行备注，最长30
      *  'abstractInfo'=>'',
      * ]
      * @return YopResponse|mixed
@@ -431,6 +430,9 @@ class YopPay extends YopRsaClient
     public static function dfTransferToSingle($customer_number, $customer_private_key, $customer_yop_public_key, $params)
     {
         $request=new YopRequest("OPR:".$customer_number, $customer_private_key, null, $customer_yop_public_key);
+        /**
+         * customerNumber和groupNumber都是易宝子商户的账号，每笔转账一元手续费
+         */
         $request->addParam("customerNumber", $customer_number);
         $request->addParam("groupNumber", $customer_number);
         foreach ($params as $key=>$value) {
