@@ -444,6 +444,35 @@ class YopPay extends YopRsaClient
 
 
     /**
+     * 代付代发--出款查询     支持沙箱
+     * https://open.yeepay.com/docs/remit001/rest__v1.0__balance__transfer_query.html
+     * @param $customer_number
+     * @param $customer_private_key
+     * @param $customer_yop_public_key
+     * @param $params
+     * [
+     *  'batchNo'=>'',
+     *  'orderId'=>'',
+     *  'product'=>'',
+     *  'pageNo'=>'',
+     *  'pageSize'=>'',
+     * ]
+     * @return YopResponse|mixed
+     */
+    public static function dfTransferQuery($customer_number, $customer_private_key, $customer_yop_public_key, $params)
+    {
+        $request=new YopRequest("OPR:".$customer_number, $customer_private_key, null, $customer_yop_public_key);
+        $request->addParam("customerNumber", $customer_number);
+        $request->addParam("groupNumber", $customer_number);
+        foreach ($params as $key=>$value) {
+            $request->addParam($key, $value);
+        }
+        $response=YopClient3::post(UriUtils::DFTransferQuery, $request);
+        return $response;
+    }
+
+
+    /**
      * 获取商户余额接口     支持沙箱
      * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__merchant__balancequery.html
      * @param $params

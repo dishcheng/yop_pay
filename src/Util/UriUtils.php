@@ -70,4 +70,6 @@ class UriUtils
     const NcCashierApiPay = '/rest/v1.0/nccashierapi/api/pay';
     //代付代发--单笔出款请求     支持沙箱-------已接
     const DFTransferToSingle='/rest/v1.0/balance/transfer_send';
+    //代付代发--出款查询     支持沙箱-------已接
+    const DFTransferQuery='/rest/v1.0/balance/transfer_query';
 }
