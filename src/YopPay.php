@@ -451,11 +451,11 @@ class YopPay extends YopRsaClient
      * @param $customer_yop_public_key
      * @param $params
      * [
-     *  'batchNo'=>'',
+     *  'batchNo'=>'',//必须
      *  'orderId'=>'',
      *  'product'=>'',
-     *  'pageNo'=>'',
-     *  'pageSize'=>'',
+     *  'pageNo'=>'',//默认1
+     *  'pageSize'=>'',//默认100
      * ]
      * @return YopResponse|mixed
      */
