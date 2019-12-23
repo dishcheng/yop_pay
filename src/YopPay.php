@@ -512,6 +512,29 @@ class YopPay extends YopRsaClient
         return $response;
     }
 
+
+    /**
+     * 查询银行卡卡bin信息
+     * @param $params
+     * [
+     * 'merchantNo'=>'',//子商编
+     * 'hmacKey'=>'',//
+     * 'bankCardNo'=>'',
+     * ]
+     * @return YopResponse|mixed
+     */
+    public static function QueryBankInfo($params)
+    {
+        $request=new YopRequest();
+        $request->addParam("parentMerchantNo", config('yop_pay.parentMerchantNo'));
+        $request->addParam("merchantNo", $params['merchantNo']);
+        foreach ($params as $key=>$value) {
+            $request->addParam($key, $value);
+        }
+        $response=YopClient3::post(UriUtils::QueryQueryBanCardBinInfo, $request);
+        return $response;
+    }
+
     /**
      * 回调验签
      * @param $responseString

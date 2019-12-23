@@ -10,7 +10,7 @@ class UriUtils
     const EnterpriseReginfoAdd = '/rest/v1.0/sys/merchant/enterprisereginfoadd';
     //子商户入网—个体
     const individualreginfoadd = '/rest/v1.0/sys/merchant/individualreginfoadd';
-    //查询银行卡卡bin信息
+    //查询银行卡卡bin信息 ------------------已接
     const QueryQueryBanCardBinInfo = '/rest/v1.0/sys/merchant/query-bank-card-bin-info';
     //子商户入网一修改产品     支持沙箱
     const ModifyModifyPayProductInfo = '/rest/v1.0/router/modify/pay-product-info';
