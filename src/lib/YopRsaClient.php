@@ -98,7 +98,10 @@ class YopRsaClient
             error_log("secretKey must be specified");
         }
 
-        extension_loaded('openssl') or die('php需要openssl扩展支持');
+        if (!extension_loaded('openssl')){
+            throw new \Exception('php需要openssl扩展支持');
+        }
+//        extension_loaded('openssl') or die('php需要openssl扩展支持');
 
         $private_key = $YopRequest->secretKey;
         $private_key = "-----BEGIN RSA PRIVATE KEY-----\n" .
