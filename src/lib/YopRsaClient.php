@@ -106,9 +106,11 @@ class YopRsaClient
             "\n-----END RSA PRIVATE KEY-----";
 //        dd($private_key);
         $privateKey = openssl_pkey_get_private($private_key);// 提取私钥
-//        dd($private_key);
-        ($privateKey) or die('密钥不可用');
-
+        if(!$privateKey){
+            //失败
+            throw new \Exception('密钥不可用');
+        }
+//        ($privateKey) or die('密钥不可用');
         $signToBase64 = "";
         // echo "tyuiop".$canonicalRequest;
         openssl_sign($canonicalRequest, $encode_data, $privateKey, "SHA256");
