@@ -105,13 +105,21 @@ abstract class YopSignUtils
             wordwrap($private_Key, 64, "\n", true) .
             "\n-----END RSA PRIVATE KEY-----";
 
-        extension_loaded('openssl') or die('php需要openssl扩展支持');
+        //extension_loaded('openssl') or die('php需要openssl扩展支持');
+        if (!extension_loaded('openssl')){
+            throw new \Exception('php需要openssl扩展支持');
+        }
+
 
 
         /* 提取私钥 */
         $privateKey = openssl_get_privatekey($private_key);
 
-        ($privateKey) or die('密钥不可用');
+        //        ($privateKey) or die('密钥不可用');
+        if(!$privateKey){
+            //失败
+            throw new \Exception('密钥不可用');
+        }
 
 
         //分解参数
@@ -161,13 +169,19 @@ abstract class YopSignUtils
             wordwrap($private_Key, 64, "\n", true) .
             "\n-----END RSA PRIVATE KEY-----";
 
-        extension_loaded('openssl') or die('php需要openssl扩展支持');
-
+//        extension_loaded('openssl') or die('php需要openssl扩展支持');
+        if (!extension_loaded('openssl')){
+            throw new \Exception('php需要openssl扩展支持');
+        }
 
         /* 提取私钥 */
         $privateKey = openssl_get_privatekey($private_key);
 
-        ($privateKey) or die('密钥不可用');
+        if(!$privateKey){
+            //失败
+            throw new \Exception('密钥不可用');
+        }
+//        ($privateKey) or die('密钥不可用');
 
         openssl_sign($source, $encode_data, $privateKey, "SHA256");
 
