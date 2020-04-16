@@ -272,6 +272,45 @@ class YopPay extends YopRsaClient
 
 
     /**
+     * 分账接口
+     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__divide.html
+     *
+     * @param $params
+     * [
+     * 'merchantNo' => '',//子商编，必须
+     * 'orderId' => '',//商户订单号，必须，
+     * 'uniqueOrderNo' => '',//统一订单号，必须
+     * 'divideRequestId' => '',//分账请求号,必须
+     * 'contractNo' => '',//合同号,必须
+     * 'divideDetail' => '',//分账明细,必须
+     * 'isUnfreezeResidualAmount' => '',//是否解冻收单商户剩余可用金额,非必须；可选TRUE、FALSE 默认TRUE
+     * 'divideNotifyUrl' => '',//分账回调地址
+     * ]
+     *
+     * @return Lib\YopResponse|mixed
+     *
+     */
+    public static function tradeDivide($params)
+    {
+        $request=new YopRequest();
+        $parentMerchantNo=config('yop_pay.parentMerchantNo');
+        $request->addParam("parentMerchantNo", $parentMerchantNo);
+        foreach ($params as $key=>$value) {
+            $request->addParam($key, $value);
+        }
+        $data=[];
+        $data['parentMerchantNo']=$parentMerchantNo;
+        $data['merchantNo']=$params['merchantNo'];
+        $data['orderId']=$params['orderId'];
+        $data['uniqueOrderNo']=$params['uniqueOrderNo'];
+        $data['divideRequestId']=$params['divideRequestId'];
+        $hmac=bin2hex(hash_hmac('sha256', self::arrayToString($data), $params['hmacKey'], true));
+        $request->addParam('hmac', $hmac);
+        return YopClient3::post(UriUtils::TradeDivide, $request);
+    }
+
+
+    /**
      * 订单退款
      * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__refund.html
      *
