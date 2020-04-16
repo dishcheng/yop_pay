@@ -282,7 +282,7 @@ class YopPay extends YopRsaClient
      * 'uniqueOrderNo' => '',//统一订单号，必须
      * 'divideRequestId' => '',//分账请求号,必须
      * 'contractNo' => '',//合同号,必须
-     * 'divideDetail' => '',//分账明细,必须
+     * 'divideDetail' => '',//分账明细,必须(https://open.yeepay.com/docs/retail000001/5b14e38d2181f82aa49df218.html)
      * 'isUnfreezeResidualAmount' => '',//是否解冻收单商户剩余可用金额,非必须；可选TRUE、FALSE 默认TRUE
      * 'divideNotifyUrl' => '',//分账回调地址
      * ]
