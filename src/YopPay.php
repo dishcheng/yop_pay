@@ -298,12 +298,13 @@ class YopPay extends YopRsaClient
         foreach ($params as $key=>$value) {
             $request->addParam($key, $value);
         }
-        $data=[];
-        $data['parentMerchantNo']=$parentMerchantNo;
-        $data['merchantNo']=$params['merchantNo'];
-        $data['orderId']=$params['orderId'];
-        $data['uniqueOrderNo']=$params['uniqueOrderNo'];
-        $data['divideRequestId']=$params['divideRequestId'];
+        $data=[
+            'parentMerchantNo'=>$parentMerchantNo,
+            'merchantNo'=>$params['merchantNo'],
+            'orderId'=>$params['orderId'],
+            'uniqueOrderNo'=>$params['uniqueOrderNo'],
+            'divideRequestId'=>$params['divideRequestId'],
+        ];
         $hmac=bin2hex(hash_hmac('sha256', self::arrayToString($data), $params['hmacKey'], true));
         $request->addParam('hmac', $hmac);
         return YopClient3::post(UriUtils::TradeDivide, $request);
