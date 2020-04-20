@@ -42,12 +42,12 @@ class UriUtils
     const QueryOrder = '/rest/v1.0/sys/trade/orderquery';
     //订单处理器-分账
     const TradeDivide = '/rest/v1.0/sys/trade/divide';
-    //订单处理器——资金全额确认
-    const TradeFullSettle = '/rest/v1.0/sys/trade/fullsettle';
-    //订单处理器-分账
+    //订单处理器-分账查询
     const TradeDivideQuery = '/rest/v1.0/sys/trade/dividequery';
     //订单处理器-完结分账
     const TradeEndDivide = '/rest/v1.0/sys/trade/enddivide';
+    //订单处理器——资金全额确认
+    const TradeFullSettle = '/rest/v1.0/sys/trade/fullsettle';
     //订单处理器——退款查询
     const TradeRefundQuery = '/rest/v1.0/sys/trade/refundquery';
     //订单处理器——退款请求------------------已接
