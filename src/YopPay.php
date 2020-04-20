@@ -323,7 +323,7 @@ class YopPay extends YopRsaClient
      * 'orderId' => '',//商户订单号，必须
      * 'uniqueOrderNo' => '',//统一订单号	，必须
      * 'divideRequestId' => '',//分账请求号，必须
-     *
+     *]
      * @return Lib\YopResponse|mixed
      *
      */
