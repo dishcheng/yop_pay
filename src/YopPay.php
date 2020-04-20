@@ -312,6 +312,44 @@ class YopPay extends YopRsaClient
 
 
     /**
+     * 订单处理器-完结分账
+     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__enddivide.html
+     *
+     * @param $params
+     * [
+     * 'orderId' => '',//商户订单号，必须，
+     * 'uniqueOrderNo' => '',//统一订单号，必须
+     * 'endDivideRequestId' => '',//完结分账请求号	，必须
+     * 'endDivideDesc' => '',//完结分账描述，必须
+     * 'merchantNo' => '',//收单商商编，必须
+     * 'endDivideUrl' => '',//完结分账通知地址，非必须
+     * ]
+     *
+     * @return Lib\YopResponse|mixed
+     *
+     */
+    public static function endDivide($params)
+    {
+        $request=new YopRequest();
+        $parentMerchantNo=config('yop_pay.parentMerchantNo');
+        $request->addParam("parentMerchantNo", $parentMerchantNo);
+        foreach ($params as $key=>$value) {
+            $request->addParam($key, $value);
+        }
+        $data=[
+            'parentMerchantNo'=>$parentMerchantNo,
+            'merchantNo'=>$params['merchantNo'],
+            'orderId'=>$params['orderId'],
+            'uniqueOrderNo'=>$params['uniqueOrderNo'],
+            'endDivideRequestId'=>$params['endDivideRequestId'],
+        ];
+        $hmac=bin2hex(hash_hmac('sha256', self::arrayToString($data), $params['hmacKey'], true));
+        $request->addParam('hmac', $hmac);
+        return YopClient3::post(UriUtils::TradeDivide, $request);
+    }
+
+
+    /**
      * 订单退款
      * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__refund.html
      *

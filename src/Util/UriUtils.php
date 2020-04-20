@@ -46,6 +46,8 @@ class UriUtils
     const TradeFullSettle = '/rest/v1.0/sys/trade/fullsettle';
     //订单处理器-分账
     const TradeDivideQuery = '/rest/v1.0/sys/trade/dividequery';
+    //订单处理器-完结分账
+    const TradeEndDivide = '/rest/v1.0/sys/trade/enddivide';
     //订单处理器——退款查询
     const TradeRefundQuery = '/rest/v1.0/sys/trade/refundquery';
     //订单处理器——退款请求------------------已接
