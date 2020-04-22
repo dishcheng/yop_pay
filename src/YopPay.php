@@ -9,6 +9,7 @@ use DishCheng\YopPay\Lib\YopRsaClient;
 use DishCheng\YopPay\Util\UriUtils;
 use DishCheng\YopPay\Util\YopSignUtils;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 
 class YopPay extends YopRsaClient
 {
@@ -147,7 +148,6 @@ class YopPay extends YopRsaClient
         foreach ($params as $key=>$paramValue) {
             $request->addParam($key, $paramValue);
         }
-//        dd($request);
         $response=YopClient3::post(UriUtils::NcCashierApiPay, $request);
         return $response;
     }

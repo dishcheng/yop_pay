@@ -2,7 +2,6 @@
 
 namespace DishCheng\YopPay\Lib;
 
-use App\Exceptions\YopCheckSignFailException;
 use DishCheng\YopPay\Lib\YopRequest;
 use DishCheng\YopPay\Lib\YopResponse;
 use DishCheng\YopPay\Lib\YopError;
@@ -10,6 +9,7 @@ use DishCheng\YopPay\Util\HTTPRequest;
 use DishCheng\YopPay\Util\HttpUtils;
 use DishCheng\YopPay\Util\StringUtils;
 use DishCheng\YopPay\Util\Base64Url;
+use Illuminate\Support\Facades\Log;
 
 //require_once("YopRequest.php");
 //require_once("YopResponse.php");
@@ -372,6 +372,8 @@ class YopRsaClient
 
         $response = new YopResponse();
         $jsoncontent = json_decode($content['content']);
+        Log::debug("请求id:".$YopRequest->requestId);
+        Log::debug("返回:".$jsoncontent);
 //        }
 //        echo '<br>-------------<br>';
 //        echo $signStr;
@@ -437,7 +439,7 @@ class YopRsaClient
             return true;
         } else {
             //"验签失败";
-            throw new \DishCheng\YopPay\Exceptions\YopCheckSignFailException();
+            throw new \DishCheng\YopPay\Exceptions\YopCheckSignFailException("验签失败");
 //            return false;
         }
     }
