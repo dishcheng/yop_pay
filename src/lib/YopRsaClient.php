@@ -373,7 +373,7 @@ class YopRsaClient
         $response = new YopResponse();
         $jsoncontent = json_decode($content['content']);
         Log::debug("请求id:".$YopRequest->requestId);
-        Log::debug("返回:".$jsoncontent);
+        Log::debug("返回:",$content);
 //        }
 //        echo '<br>-------------<br>';
 //        echo $signStr;
