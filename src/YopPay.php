@@ -386,7 +386,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 订单处理器——资金全额确认     支持沙箱
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__enddivide.html
+     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__fullsettle.html
      *
      * @param $params
      * [

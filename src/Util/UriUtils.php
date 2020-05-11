@@ -40,13 +40,13 @@ class UriUtils
     const CreateOrder = '/rest/v1.0/sys/trade/order';
     //订单处理器——查询订单------------------已接
     const QueryOrder = '/rest/v1.0/sys/trade/orderquery';
-    //订单处理器-分账
+    //订单处理器-分账------------------已接
     const TradeDivide = '/rest/v1.0/sys/trade/divide';
-    //订单处理器-分账查询
+    //订单处理器-分账查询------------------已接
     const TradeDivideQuery = '/rest/v1.0/sys/trade/dividequery';
-    //订单处理器-完结分账
+    //订单处理器-完结分账------------------已接
     const TradeEndDivide = '/rest/v1.0/sys/trade/enddivide';
-    //订单处理器——资金全额确认
+    //订单处理器——资金全额确认------------------已接
     const TradeFullSettle = '/rest/v1.0/sys/trade/fullsettle';
     //订单处理器——退款查询
     const TradeRefundQuery = '/rest/v1.0/sys/trade/refundquery';
