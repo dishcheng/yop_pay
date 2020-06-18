@@ -26,7 +26,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 创建订单
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__order.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__order/index.html
      *
      * [
      * 'merchantNo' => '10015386847',//收单商户商编
@@ -90,7 +90,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 聚合API收银台接口，调起支付信息
-     * https://open.yeepay.com/docs/retail000001/5b3aeae9080cd0005e86a54e.html
+     * https://open.yeepay.com/docs/v2/products/opr/others/5e94315aa8e9ea001ac6d0ed/5e943182a8e9ea001ac6d0ee/index.html
      *
      * @param $token '使用createOrder返回的result的token
      * @param $params
@@ -155,7 +155,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 关闭订单，幂等
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__orderclose.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__orderclose/index.html
      *
      * @param $params
      * 请求参数：
@@ -208,7 +208,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 查询订单结果
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__orderquery.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__orderquery/index.html
      *
      * @param $params
      * [
@@ -273,7 +273,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 分账接口
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__divide.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__divide/index.html
      *
      * @param $params
      * [
@@ -313,7 +313,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 订单处理器-分账查询
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__dividequery.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__dividequery/index.html
      *
      * @param $params
      * [
@@ -386,7 +386,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 订单处理器——资金全额确认     支持沙箱
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__fullsettle.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__fullsettle/index.html
      *
      * @param $params
      * [
@@ -421,7 +421,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 订单退款
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__sys__trade__refund.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__refund/index.html
      *
      * @param $params
      * [
@@ -482,7 +482,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 统一公众号配置     支持沙箱
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__router__open-pay-async-report__config.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__router__open-pay-async-report__config/index.html
      * @param $params
      * [
      *      'appId'=>'xxxx',
@@ -505,7 +505,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 统一公众号配置查询     支持沙箱
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__router__open-pay-jsapi-config__query.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__router__open-pay-jsapi-config__query/index.html
      * @param $params
      * [
      *      'merchantNo'=>'10015386847',
@@ -528,7 +528,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 聚合报备——报备服务
-     * https://open.yeepay.com/docs/retail000001/rest__v1.0__router__open-pay-async-report__report.html
+     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__router__open-pay-async-report__report/index.html
      * @param $params
      * [
      *      'merchantNo'=>'10015386847',
@@ -551,6 +551,8 @@ class YopPay extends YopRsaClient
 
     /**
      * 代付代发--单笔出款请求     支持沙箱
+     * https://open.yeepay.com/docs/v2/products/dfdf/apis/options__rest__v1.0__balance__transfer_send/index.html
+     *
      * 1、接口开通
      * https://open.yeepay.com/docs/remit001/rest__v1.0__balance__transfer_send.html
      * 2、如何获取公私钥信息（需要子商户申请）
@@ -593,7 +595,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 代付代发--出款查询     支持沙箱
-     * https://open.yeepay.com/docs/remit001/rest__v1.0__balance__transfer_query.html
+     * https://open.yeepay.com/docs/v2/products/dfdf/apis/options__rest__v1.0__balance__transfer_query/index.html
      * @param $customer_number
      * @param $customer_private_key
      * @param $customer_yop_public_key
@@ -686,7 +688,8 @@ class YopPay extends YopRsaClient
     /**
      * 回调验签
      * @param $responseString
-     * @return bool|string
+     * @return bool|false|string
+     * @throws \Exception
      */
     public static function callback_decrypt($responseString)
     {
