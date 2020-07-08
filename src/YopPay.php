@@ -487,6 +487,7 @@ class YopPay extends YopRsaClient
      * [
      *      'appId'=>'xxxx',
      *      'merchantNo'=>'10015386847',
+     *      'tradeAuthorizationDirectories'=>'',
      *      'appId'=>'appId',
      *      'channelIds    '=>'渠道号集合',
      *      'senceType'=>'场景',
@@ -528,7 +529,7 @@ class YopPay extends YopRsaClient
 
     /**
      * 聚合报备——报备服务
-     * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__router__open-pay-async-report__report/index.html
+     *  https://open.yeepay.com/docs/retail000001/rest__v1.0__router__open-pay-async-report__report.html
      * @param $params
      * [
      *      'merchantNo'=>'10015386847',
