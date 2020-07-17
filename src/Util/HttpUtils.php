@@ -9,7 +9,6 @@
 namespace DishCheng\YopPay\Util;
 
 //require_once("StringBuilder.php");
-use DishCheng\YopPay\Util\StringBuilder;
 
 abstract class HttpUtils
 {

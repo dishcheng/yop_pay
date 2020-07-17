@@ -2,7 +2,6 @@
 
 namespace DishCheng\YopPay\Lib;
 
-use DishCheng\YopPay\Lib\YopConfig;
 
 //require_once("YopConfig.php");
 

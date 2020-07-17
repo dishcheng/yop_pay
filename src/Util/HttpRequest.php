@@ -2,7 +2,6 @@
 
 namespace DishCheng\YopPay\Util;
 
-use DishCheng\YopPay\Util\HttpUtils;
 
 //require_once("HttpUtils.php");
 error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
@@ -10,7 +9,7 @@ define("LANGS", "php");
 define("VERSION", "3.2.11");
 define("USERAGENT", LANGS . "/" . VERSION . "/" . PHP_OS . "/" . $_SERVER ['SERVER_SOFTWARE'] . "/Zend Framework/" . zend_version() . "/" . PHP_VERSION . "/" . $_SERVER['HTTP_ACCEPT_LANGUAGE'] . "/");
 
-abstract class HTTPRequest
+abstract class HttpRequest
 {
 
     /**

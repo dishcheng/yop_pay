@@ -2,8 +2,6 @@
 
 namespace DishCheng\YopPay\Util;
 
-use DishCheng\YopPay\Util\Base64Url;
-use DishCheng\YopPay\Util\AESEncrypter;
 
 
 abstract class YopSignUtils

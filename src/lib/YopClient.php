@@ -2,10 +2,6 @@
 
 namespace DishCheng\YopPay\Lib;
 
-use DishCheng\YopPay\Lib\YopRequest;
-use DishCheng\YopPay\Lib\YopResponse;
-use DishCheng\YopPay\Lib\YopError;
-use DishCheng\YopPay\Lib\YopConfig;
 use DishCheng\YopPay\Util\AESEncrypter;
 use DishCheng\YopPay\Util\YopSignUtils;
 use DishCheng\YopPay\Util\HttpRequest;
