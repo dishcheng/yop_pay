@@ -3,7 +3,7 @@
 namespace DishCheng\YopPay\Lib;
 
 use DishCheng\YopPay\Util\Base64Url;
-use DishCheng\YopPay\Util\HTTPRequest;
+use DishCheng\YopPay\Util\HttpRequest;
 use DishCheng\YopPay\Util\HttpUtils;
 use DishCheng\YopPay\Util\StringUtils;
 
