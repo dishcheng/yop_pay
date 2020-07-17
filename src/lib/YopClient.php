@@ -15,6 +15,7 @@ use DishCheng\YopPay\Util\HttpRequest;
 //require_once("Util/HttpRequest.php");
 
 class YopClient
+
 {
 
     public function __construct()

@@ -9,7 +9,6 @@ use DishCheng\YopPay\Lib\YopRsaClient;
 use DishCheng\YopPay\Util\UriUtils;
 use DishCheng\YopPay\Util\YopSignUtils;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Log;
 
 class YopPay extends YopRsaClient
 {
