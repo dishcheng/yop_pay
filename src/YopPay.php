@@ -23,6 +23,7 @@ class YopPay extends YopRsaClient
         return $Str;
     }
 
+
     /**
      * 创建订单
      * https://open.yeepay.com/docs/v2/products/opr/apis/options__rest__v1.0__sys__trade__order/index.html
@@ -687,26 +688,31 @@ class YopPay extends YopRsaClient
 
 
     /**
-     * 标准收银台
-     * https://open.yeepay.com/docs/products/opr/others/5e94315aa8e9ea001ac6d0ed/5e94316667e977001ab584fc
+     * 生成标准收银台-支付链接
      * @param $token
      * @param $directPayType
      * @param $params
      * [
-     *    'userType'=>'USER_ID',
-     *    'userNo'=>'',
+     *   "userType"=>"USER_ID",
+     *   "userNo"=>"00000000001"
      * ]
-     * @return YopResponse
+     * @return string
+     * @throws \Exception
      */
-    public static function standPay($token, $directPayType, $params): YopResponse
+    public static function generateStandPayUrl($token, $directPayType, $params)
     {
-        $request=new YopRequest();
-        $request->addParam('token', $token);
-        $request->addParam('directPayType', $directPayType);
-        foreach ($params as $key=>$paramValue) {
-            $request->addParam($key, $paramValue);
-        }
-        return YopClient3::post(UriUtils::YopStandPay, $request);
+        $baseParams=[
+            "merchantNo"=>config('yop_pay.parentMerchantNo'),
+            "token"=>$token,
+            "timestamp"=>time(),
+            "directPayType"=>$directPayType,
+        ];
+        $params=array_merge($params, $baseParams);
+        $content=self::arrayToString($params);
+        $sign=YopSignUtils::signRsa($content, config('yop_pay.private_key'));
+        $url=$content."&sign=".$sign;
+        $url=str_replace("&timestamp", "&amp;timestamp", $url);
+        return 'https://cash.yeepay.com'.UriUtils::YopStandPay.'?'.$url;
     }
 
     /**
