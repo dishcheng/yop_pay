@@ -688,9 +688,10 @@ class YopPay extends YopRsaClient
 
     /**
      * 标准收银台
+     * @param $token
+     * @param $directPayType
      * @param $params
      * [
-     *    'directPayType'='',
      *    'customerNo'=>'',
      *    'customerRequestNo'=>'',
      *    'amount'=>'',
@@ -699,11 +700,13 @@ class YopPay extends YopRsaClient
      *    'userNo'=>'',
      *    'receiverCallbackUrl'=>'',
      * ]
-     * @return YopResponse|mixed
+     * @return YopResponse
      */
-    public static function standPay($params): YopResponse
+    public static function standPay($token, $directPayType, $params): YopResponse
     {
         $request=new YopRequest();
+        $request->addParam('token', $token);
+        $request->addParam('directPayType', $directPayType);
         foreach ($params as $key=>$paramValue) {
             $request->addParam($key, $paramValue);
         }
