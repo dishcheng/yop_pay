@@ -689,12 +689,22 @@ class YopPay extends YopRsaClient
 
     /**
      * 生成标准收银台-支付链接
+     * https://open.yeepay.com/docs/products/opr/others/5e94315aa8e9ea001ac6d0ed/5e94316667e977001ab584fc
+     *
+     * 注意params一定要按文档顺序
+     * $content必须以参数编号为顺序
+     * merchantNo=xxxxxx&token=xxx&timestamp=1597226617&directPayType=xxx&cardType=xxx&userNo=xxx&userType=xxx&ext=xxx
+     *
+     * @param $merchantNo
      * @param $token
      * @param $directPayType
      * @param $params
      * [
-     *   "userType"=>"USER_ID",
+     *   "merchantNo"=>"",
+     *   "cardType"=>"",//必填，可传空
      *   "userNo"=>"00000000001"
+     *   "userType"=>"USER_ID",
+     *   "ext"=>"",//必填，可传空
      * ]
      * @return string
      * @throws \Exception
@@ -707,11 +717,10 @@ class YopPay extends YopRsaClient
             "timestamp"=>time(),
             "directPayType"=>$directPayType,
         ];
-        $params=array_merge($params, $baseParams);
+        $params=array_merge($baseParams, $params);
         $content=self::arrayToString($params);
         $sign=YopSignUtils::signRsa($content, config('yop_pay.private_key'));
         $url=$content."&sign=".$sign;
-        $url=str_replace("&timestamp", "&amp;timestamp", $url);
         return 'https://cash.yeepay.com'.UriUtils::YopStandPay.'?'.$url;
     }
 
