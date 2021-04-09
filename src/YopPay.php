@@ -700,7 +700,6 @@ class YopPay extends YopRsaClient
      * @param $directPayType
      * @param $params
      * [
-     *   "merchantNo"=>"",
      *   "cardType"=>"",//必填，可传空
      *   "userNo"=>"00000000001"
      *   "userType"=>"USER_ID",
