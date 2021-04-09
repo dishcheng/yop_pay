@@ -685,6 +685,31 @@ class YopPay extends YopRsaClient
         return $response;
     }
 
+
+    /**
+     * 无卡支付
+     * @param $params
+     * [
+     *    'customerNo'=>'',
+     *    'customerRequestNo'=>'',
+     *    'amount'=>'',
+     *    'goodsName'=>'',
+     *    'userType'=>'USER_ID',
+     *    'userNo'=>'',
+     *    'receiverCallbackUrl'=>'',
+     * ]
+     * @return YopResponse|mixed
+     */
+    public static function noCardPay($params)
+    {
+        $request=new YopRequest();
+        $request->addParam('directPayType', 'NCPAY');
+        foreach ($params as $key=>$paramValue) {
+            $request->addParam($key, $paramValue);
+        }
+        return YopClient3::post(UriUtils::YopPayByCashier, $request);
+    }
+
     /**
      * 回调验签
      * @param $responseString

@@ -74,4 +74,6 @@ class UriUtils
     const DFTransferToSingle='/rest/v1.0/balance/transfer_send';
     //代付代发--出款查询     支持沙箱-------已接
     const DFTransferQuery='/rest/v1.0/balance/transfer_query';
+    //无卡支付、等使用-------已接
+    const YopPayByCashier='/rest/v1.0/bc/cashier/create-yop-cashier-url';
 }
