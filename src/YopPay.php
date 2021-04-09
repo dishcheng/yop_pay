@@ -688,17 +688,13 @@ class YopPay extends YopRsaClient
 
     /**
      * 标准收银台
+     * https://open.yeepay.com/docs/products/opr/others/5e94315aa8e9ea001ac6d0ed/5e94316667e977001ab584fc
      * @param $token
      * @param $directPayType
      * @param $params
      * [
-     *    'customerNo'=>'',
-     *    'customerRequestNo'=>'',
-     *    'amount'=>'',
-     *    'goodsName'=>'',
      *    'userType'=>'USER_ID',
      *    'userNo'=>'',
-     *    'receiverCallbackUrl'=>'',
      * ]
      * @return YopResponse
      */
