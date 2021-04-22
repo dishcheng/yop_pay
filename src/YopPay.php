@@ -580,7 +580,7 @@ class YopPay extends YopRsaClient
      */
     public static function dfTransferToSingle($customer_number, $customer_private_key, $customer_yop_public_key, $params)
     {
-        $request=new YopRequest("OPR:".$customer_number, $customer_private_key, null, $customer_yop_public_key);
+        $request=new YopRequest("app_".$customer_number, $customer_private_key, null, $customer_yop_public_key);
         /**
          * customerNumber和groupNumber都是易宝子商户的账号，每笔转账一元手续费
          */
