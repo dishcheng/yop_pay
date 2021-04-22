@@ -612,7 +612,7 @@ class YopPay extends YopRsaClient
      */
     public static function dfTransferQuery($customer_number, $customer_private_key, $customer_yop_public_key, $params)
     {
-        $request=new YopRequest("OPR:".$customer_number, $customer_private_key, null, $customer_yop_public_key);
+        $request=new YopRequest("app_".$customer_number, $customer_private_key, null, $customer_yop_public_key);
         $request->addParam("customerNumber", $customer_number);
         $request->addParam("groupNumber", $customer_number);
         foreach ($params as $key=>$value) {
