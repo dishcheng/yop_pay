@@ -550,6 +550,9 @@ class YopPay extends YopRsaClient
     }
 
 
+    //特殊商编：商编只给OPR授权了
+    const SpecialCustomerNumber=['10033245275'];
+
     /**
      * 代付代发--单笔出款请求     支持沙箱
      * https://open.yeepay.com/docs/v2/products/dfdf/apis/options__rest__v1.0__balance__transfer_send/index.html
@@ -580,7 +583,13 @@ class YopPay extends YopRsaClient
      */
     public static function dfTransferToSingle($customer_number, $customer_private_key, $customer_yop_public_key, $params)
     {
-        $request=new YopRequest("app_".$customer_number, $customer_private_key, null, $customer_yop_public_key);
+        if (in_array($customer_number, self::SpecialCustomerNumber)) {
+            //特殊商编：商编只给OPR授权了
+            $appKey="OPR:".$customer_number;
+        } else {
+            $appKey="app_".$customer_number;
+        }
+        $request=new YopRequest($appKey, $customer_private_key, null, $customer_yop_public_key);
         /**
          * customerNumber和groupNumber都是易宝子商户的账号，每笔转账一元手续费
          */
@@ -612,7 +621,13 @@ class YopPay extends YopRsaClient
      */
     public static function dfTransferQuery($customer_number, $customer_private_key, $customer_yop_public_key, $params)
     {
-        $request=new YopRequest("app_".$customer_number, $customer_private_key, null, $customer_yop_public_key);
+        if (in_array($customer_number, self::SpecialCustomerNumber)) {
+            //特殊商编：商编只给OPR授权了
+            $appKey="OPR:".$customer_number;
+        } else {
+            $appKey="app_".$customer_number;
+        }
+        $request=new YopRequest($appKey, $customer_private_key, null, $customer_yop_public_key);
         $request->addParam("customerNumber", $customer_number);
         $request->addParam("groupNumber", $customer_number);
         foreach ($params as $key=>$value) {
